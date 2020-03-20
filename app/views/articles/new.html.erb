@@ -8,6 +8,15 @@
 <!--  <input type="submit">-->
 <!--</form>-->
 
+<% if @article.errors.any? %>
+  <p>The following errors were encountered while creatin new article:</p>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%=form_for @article do |f| %>
   <p>
     <%= f.label :title %>
