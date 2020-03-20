@@ -1,0 +1,25 @@
+<h1>Articles Homepage</h1>
+<p>
+  <%= link_to "Add new article", new_article_path %>
+</p>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <div>
+        <p>
+          <b>Title</b>: <%= article.title %>
+        </p>
+      </div>
+      <div>
+        <p>
+          <b>Description:</b> <%= article.description %>
+        </p>
+      </div>
+      <div>
+        <p>
+          <%= link_to "Show article", article_path(article) %>
+        </p>
+      </div>
+    </li>
+  <% end %>
+</ul>

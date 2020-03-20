@@ -2,11 +2,20 @@
 <br>
 <div>
   <p>
-    <b>Title</b>: <%=@article.title %>
+    <b>Title</b>: <%= @article.title %>
   </p>
 </div>
 <div>
   <p>
-    <b>Description:</b><br><br> <%=@article.description %>
+    <b>Description:</b> <%= @article.description %>
   </p>
 </div>
+<div>
+  <p>
+    <%= link_to "Edit article", edit_article_path %>
+  </p>
+</div>
+
+<p>
+  <%= link_to "Homepage", articles_path %>
+</p>

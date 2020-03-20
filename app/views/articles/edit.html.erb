@@ -1,18 +1,10 @@
-<h2>Create new Article</h2>
-
-<!--<form method="post" action="submit">-->
-<!--  <label>Title</label><br><br>-->
-<!--  <input type="text" placeholder="Title of article" ><br><br><br>-->
-<!--  <label>Description</label><br><br>-->
-<!--  <textarea rows="10" cols="100" placeholder="Description for article"></textarea><br><br><br><br>-->
-<!--  <input type="submit">-->
-<!--</form>-->
+<h2>Editing the Article</h2>
 
 <% if @article.errors.any? %>
   <p>The following errors were encountered while creating new article:</p>
   <ul>
     <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
     <% end %>
   </ul>
 <% end %>
@@ -34,8 +26,11 @@
     <%= f.submit %>
   </p>
 
-<% end %>
+  <p>
+    <%= link_to "Cancel", article_path %>
+  </p>
 
+<% end %>
 
 <p>
   <%= link_to "Homepage", articles_path %>
