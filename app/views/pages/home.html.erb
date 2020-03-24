@@ -1,4 +1,8 @@
-<h2>This is the Homepage!!!</h2>
-<p>
-  <%= link_to "Alpha Blog", articles_path %> || <%= link_to 'About', about_path %>
-</p>
+
+<div class="jumbotron">
+  <h1 class="display-4">Hello, folks!</h1>
+  <p class="lead">Here, I present you another blog!</p>
+  <hr class="my-4">
+  <p>It is based completely on Ruby on Rails, isn't it just awesome!</p>
+  <%= link_to "Learn More", about_path, class: "btn btn-primary btn-lg", role: "button" %>
+</div>
