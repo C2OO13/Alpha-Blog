@@ -1,0 +1,39 @@
+<h1 align="center">Signup for Alpha Blog</h1>
+<% if @user.errors.any? %>
+  <p>The following errors were encountered while signing up:</p>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%=form_for @user do |f| %>
+  <p>
+    <%= f.label :Username %>
+    <br/>
+    <%= f.text_field :username %>
+  </p>
+
+  <p>
+    <%= f.label :Email %>
+    <br/>
+    <%= f.email_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :Password %>
+    <br/>
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <%= f.submit "Signup"%>
+  </p>
+
+<% end %>
+
+
+<p>
+  <%= link_to "Cancel", articles_path %>
+</p>
