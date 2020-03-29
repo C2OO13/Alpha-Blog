@@ -1,12 +1,14 @@
+
 <% if @article.errors.any? %>
+  <div class="alert alert-danger">
   <p>The following errors were encountered while creating new article:</p>
   <ul>
     <% @article.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>
   </ul>
+  </div>
 <% end %>
-
 <%=form_for @article do |f| %>
   <p>
     <%= f.label :title %>
@@ -26,7 +28,3 @@
 
 <% end %>
 
-
-<p>
-  <%= link_to "Homepage", articles_path %>
-</p>
