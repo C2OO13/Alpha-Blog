@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 class ArticlesController < ApplicationController
 
-  before_action :set_article , only: %i[edit show update destroy]
+  before_action :set_article, only: [:edit, :show, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 2)
@@ -46,12 +48,18 @@ class ArticlesController < ApplicationController
 
   private
 
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def article_params
-      params.require(:article).permit(:title, :description)
-    end
+  def article_params
+    params.require(:article).permit(:title, :description)
+  end
 
+  def require_same_user
+    if current_user != @article.user
+      flash[:danger] = "You can perform this action only your own article"
+      redirect_to home_path
+    end
+  end
 end
