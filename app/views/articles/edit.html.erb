@@ -1,10 +1,10 @@
 <h2 align="center">Editing the Article</h2>
 <%= render 'articles/form' %>
-<% if logged_in? && (current_user == article.user || current_user.admin?) %>
+<% if logged_in? && (current_user == @article.user || current_user.admin?) %>
   <div>
     <p>
       <%= link_to "Cancel", article_path, class: "btn btn-dark" %>
-      <%= link_to "Delete", article_path,class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+      <%= link_to "Delete", article_path(@article) ,class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
     </p>
   </div>
 <% end %>
