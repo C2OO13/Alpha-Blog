@@ -15,10 +15,10 @@
       </li>
     </div>
     </ul>
-    <div class="right" style="list-style: none;float: right;padding-left: 950px" >
+    <div class="right" style="list-style: none;float: right;padding-left: 850px" >
       <li class="nav-item dropdown my-2 my-lg-0">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Your Profile
+          Your Profile <%= "Admin" if logged_in? && current_user.admin? %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "Users", users_path ,class: "dropdown-item" %>
